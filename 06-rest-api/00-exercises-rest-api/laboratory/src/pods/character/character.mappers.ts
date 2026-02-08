@@ -1,7 +1,7 @@
-import * as apiModel from './api/hotel.api-model';
-import * as viewModel from './hotel.vm';
+import * as apiModel from './api/character.api-model';
+import * as viewModel from './character.vm';
 
-export const mapHotelFromApiToVm = (
+export const mapCharacterFromApiToVm = (
   character: apiModel.Character
 ): viewModel.Character => ({
   ...character,
@@ -12,7 +12,7 @@ export const mapHotelFromApiToVm = (
   image: character.image,
 });
 
-export const mapHotelFromVmToApi = (character: viewModel.Character): apiModel.Character =>
+export const mapCharacterFromVmToApi = (character: viewModel.Character): apiModel.Character =>
   (({
     ...character,
     id: character.id,

@@ -1,7 +1,7 @@
-import { Character } from './hotel.api-model';
+import { Character } from './character.api-model';
 import { Lookup } from '#common/models';
 
-export const mockHotelCollection: Character[] = [
+export const mockCharacterCollection: Character[] = [
   {
     id: 1,
     name: "Rick Sanchez",

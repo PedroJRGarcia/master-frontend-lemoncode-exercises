@@ -7,23 +7,23 @@ import {
   RatingComponent,
 } from '#common/components';
 import { Lookup } from '#common/models';
-import { formValidation } from './hotel.validations';
-import { Character } from './hotel.vm';
-import * as classes from './hotel.styles';
+import { formValidation } from './character.validations';
+import { Character } from './character.vm';
+import * as classes from './character.styles';
 
 interface Props {
-  hotel: Character;
+  character: Character;
   cities: Lookup[];
-  onSave: (hotel: Character) => void;
+  onSave: (character: Character) => void;
 }
 
-export const HotelComponent: React.FunctionComponent<Props> = (props) => {
-  const { hotel, cities, onSave } = props;
+export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
+  const { character, cities, onSave } = props;
 
   return (
     <Formik
       onSubmit={onSave}
-      initialValues={hotel}
+      initialValues={character}
       enableReinitialize={true}
       validate={formValidation.validateForm}
     >

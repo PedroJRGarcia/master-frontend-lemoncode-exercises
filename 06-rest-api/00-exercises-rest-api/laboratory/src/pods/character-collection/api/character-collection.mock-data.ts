@@ -1,4 +1,4 @@
-import { CharacterEntityApi } from './hotel-collection.api-model';
+import { CharacterEntityApi } from './character-collection.api-model';
 
 export const mockCharacterCollection: CharacterEntityApi[] = [
   {

@@ -6,7 +6,7 @@ export interface Character {
   image: string;
 }
 
-export const createEmptyHotel = (): Character => ({
+export const createEmptyCharacter = (): Character => ({
   id: 0,
   name: '',
   status: '',
