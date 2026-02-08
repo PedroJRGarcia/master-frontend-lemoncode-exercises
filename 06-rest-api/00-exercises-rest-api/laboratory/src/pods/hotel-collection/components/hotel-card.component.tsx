@@ -9,13 +9,13 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { HotelEntityVm } from '../hotel-collection.vm';
+import { CharacterEntityVm } from '../hotel-collection.vm';
 import * as classes from './hotel-card.styles';
 
 interface Props {
-  hotel: HotelEntityVm;
-  onEdit: (id: string) => void;
-  onDelete: (id: string) => void;
+  hotel: CharacterEntityVm;
+  onEdit: (id: number) => void;
+  onDelete: (id: number) => void;
 }
 
 export const HotelCard: React.FunctionComponent<Props> = (props) => {
@@ -24,19 +24,19 @@ export const HotelCard: React.FunctionComponent<Props> = (props) => {
   return (
     <Card>
       <CardHeader
-        avatar={<Avatar aria-label="Hotel">{hotel.rating}</Avatar>}
+        avatar={<Avatar aria-label="Hotel">{hotel.name}</Avatar>}
         title={hotel.name}
-        subheader={hotel.address}
+        subheader={hotel.species}
       />
       <CardContent>
         <div className={classes.content}>
           <CardMedia
-            image={hotel.picture}
+            image={hotel.image}
             title={hotel.name}
             style={{ height: 0, paddingTop: '56.25%' }}
           />
           <Typography variant="subtitle1" gutterBottom>
-            {hotel.description}
+            {hotel.status}
           </Typography>
         </div>
       </CardContent>

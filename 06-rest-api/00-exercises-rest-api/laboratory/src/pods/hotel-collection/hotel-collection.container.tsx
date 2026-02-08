@@ -17,11 +17,11 @@ export const HotelCollectionContainer = () => {
     navigate(linkRoutes.createHotel);
   };
 
-  const handleEdit = (id: string) => {
+  const handleEdit = (id: number) => {
     navigate(linkRoutes.editHotel(id));
   };
 
-  const handleDelete = async (id: string) => {
+  const handleDelete = async (id: number) => {
     await deleteHotel(id);
     loadHotelCollection();
   };

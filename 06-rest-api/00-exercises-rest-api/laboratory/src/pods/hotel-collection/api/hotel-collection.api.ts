@@ -1,13 +1,13 @@
-import { HotelEntityApi } from './hotel-collection.api-model';
-import { mockHotelCollection } from './hotel-collection.mock-data';
+import { CharacterEntityApi } from './hotel-collection.api-model';
+import { mockCharacterCollection } from './hotel-collection.mock-data';
 
-let hotelCollection = [...mockHotelCollection];
+let hotelCollection = [...mockCharacterCollection];
 
-export const getHotelCollection = async (): Promise<HotelEntityApi[]> => {
+export const getHotelCollection = async (): Promise<CharacterEntityApi[]> => {
   return hotelCollection;
 };
 
-export const deleteHotel = async (id: string): Promise<boolean> => {
+export const deleteHotel = async (id: number): Promise<boolean> => {
   hotelCollection = hotelCollection.filter((h) => h.id !== id);
   return true;
 };

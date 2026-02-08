@@ -1,14 +1,14 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import { HotelEntityVm } from './hotel-collection.vm';
+import { CharacterEntityVm } from './hotel-collection.vm';
 import { HotelCard } from './components/hotel-card.component';
 import * as classes from './hotel-collection.styles';
 
 interface Props {
-  hotelCollection: HotelEntityVm[];
+  hotelCollection: CharacterEntityVm[];
   onCreateHotel: () => void;
-  onEdit: (id: string) => void;
-  onDelete: (id: string) => void;
+  onEdit: (id: number) => void;
+  onDelete: (id: number) => void;
 }
 
 export const HotelCollectionComponent: React.FunctionComponent<Props> = (
