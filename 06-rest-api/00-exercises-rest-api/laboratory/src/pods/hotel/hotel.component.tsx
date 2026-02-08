@@ -8,13 +8,13 @@ import {
 } from '#common/components';
 import { Lookup } from '#common/models';
 import { formValidation } from './hotel.validations';
-import { Hotel } from './hotel.vm';
+import { Character } from './hotel.vm';
 import * as classes from './hotel.styles';
 
 interface Props {
-  hotel: Hotel;
+  hotel: Character;
   cities: Lookup[];
-  onSave: (hotel: Hotel) => void;
+  onSave: (hotel: Character) => void;
 }
 
 export const HotelComponent: React.FunctionComponent<Props> = (props) => {
