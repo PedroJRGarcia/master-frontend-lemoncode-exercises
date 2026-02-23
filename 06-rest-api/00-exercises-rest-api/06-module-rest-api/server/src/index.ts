@@ -30,12 +30,32 @@ app.get('/api/character/:id', (context) => {
   );
 });
 
+app.get('/api/episode', async (context) => {
+  return context.json({ results: [] });
+});
+
+app.post('/api/character', async (context) => {
+  const character = await context.req.json();
+  const newCharacter = {
+    ...character,
+    id: db.characters.length + 1,
+  };
+  db.characters = [...db.characters, newCharacter];
+  return context.json(newCharacter, 201);
+});
+
 app.put('/api/character/:id', async (context) => {
   const id = Number(context.req.param('id'));
   const character = await context.req.json();
   db.characters = db.characters.map((c) =>
     c.id === id ? { ...c, ...character } : c
   );
+  return context.body(null, 204);
+});
+
+app.delete('/api/character/:id', (context) => {
+  const id = Number(context.req.param('id'));
+  db.characters = db.characters.filter((c) => c.id !== id);
   return context.body(null, 204);
 });
 

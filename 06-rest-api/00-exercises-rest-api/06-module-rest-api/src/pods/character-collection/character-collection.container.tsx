@@ -8,22 +8,23 @@ import { CharacterCollectionComponent } from './character-collection.component';
 export const CharacterCollectionContainer = () => {
   const { characterCollection, loadCharacterCollection } = useCharacterCollection();
   const navigate = useNavigate();
+  const [page, setPage] = React.useState(1);
 
   React.useEffect(() => {
-    loadCharacterCollection();
-  }, []);
+    loadCharacterCollection(page);
+  }, [page]);
 
   const handleCreateCharacter = () => {
     navigate(linkRoutes.createCharacter);
   };
 
-  const handleEdit = (id: string) => {
+  const handleEdit = (id: number) => {
     navigate(linkRoutes.editCharacter(id));
   };
 
-  const handleDelete = async (id: string) => {
+  const handleDelete = async (id: number) => {
     await deleteCharacter(id);
-    loadCharacterCollection();
+    loadCharacterCollection(page);
   };
 
   return (
@@ -32,6 +33,8 @@ export const CharacterCollectionContainer = () => {
       onCreateCharacter={handleCreateCharacter}
       onEdit={handleEdit}
       onDelete={handleDelete}
+      onPageChange={setPage}
+      page={page}
     />
   );
 };

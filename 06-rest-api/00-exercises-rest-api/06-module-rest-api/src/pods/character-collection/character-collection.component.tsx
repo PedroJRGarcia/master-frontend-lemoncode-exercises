@@ -7,14 +7,16 @@ import * as classes from './character-collection.styles';
 interface Props {
   characterCollection: CharacterEntityVm[];
   onCreateCharacter: () => void;
-  onEdit: (id: string) => void;
-  onDelete: (id: string) => void;
+  onEdit: (id: number) => void;
+  onDelete: (id: number) => void;
+  onPageChange: (page: number) => void;
+  page: number;
 }
 
 export const CharacterCollectionComponent: React.FunctionComponent<Props> = (
   props
 ) => {
-  const { characterCollection, onCreateCharacter, onEdit, onDelete } = props;
+  const { characterCollection, onCreateCharacter, onEdit, onDelete, onPageChange, page } = props;
 
   return (
     <div className={classes.root}>
@@ -29,6 +31,11 @@ export const CharacterCollectionComponent: React.FunctionComponent<Props> = (
           </li>
         ))}
       </ul>
+      <div>
+        <Button disabled={page === 1} onClick={() => onPageChange(page - 1)}>Prev</Button>
+        <span> Page {page} </span>
+        <Button onClick={() => onPageChange(page + 1)}>Next</Button>
+      </div>
     </div>
   );
 };

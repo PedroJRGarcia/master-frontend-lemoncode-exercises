@@ -5,6 +5,7 @@ export const characters: Character[] = [
   {
     id: 1,
     name: 'Rick Sanchez',
+    bestSentence: 'Wubba lubba dub dub!',
     status: 'Alive',
     species: 'Human',
     type: '',
@@ -77,6 +78,7 @@ export const characters: Character[] = [
   {
     id: 2,
     name: 'Morty Smith',
+    bestSentence: 'Aw geez Rick...',
     status: 'Alive',
     species: 'Human',
     type: '',
@@ -149,6 +151,7 @@ export const characters: Character[] = [
   {
     id: 3,
     name: 'Summer Smith',
+    bestSentence: 'Nobody exists on purpose, nobody belongs anywhere.',
     status: 'Alive',
     species: 'Human',
     type: '',
@@ -212,6 +215,7 @@ export const characters: Character[] = [
   {
     id: 4,
     name: 'Beth Smith',
+    bestSentence: 'I am a surgeon, dammit!',
     status: 'Alive',
     species: 'Human',
     type: '',
@@ -275,6 +279,7 @@ export const characters: Character[] = [
   {
     id: 5,
     name: 'Jerry Smith',
+    bestSentence: 'I just want to be part of your adventures.',
     status: 'Alive',
     species: 'Human',
     type: '',

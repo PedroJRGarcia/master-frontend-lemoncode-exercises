@@ -1,15 +1,25 @@
 import { Character } from './character.api-model';
 import { Lookup } from '#common/models';
-import { mockCities, mockCharacterCollection } from './character.mock-data';
+import axios from 'axios';
+
+const characterListUrl = '/api/character';
+const episodeUrl = 'https://rickandmortyapi.com/api/episode';
 
 export const getCharacter = async (id: number): Promise<Character> => {
-  return mockCharacterCollection.find((h) => h.id === id);
+  const { data } = await axios.get<Character>(`${characterListUrl}/${id}`);
+  return data;
 };
 
-export const getCities = async (): Promise<Lookup[]> => {
-  return mockCities;
+export const getEpisodes = async (): Promise<Lookup[]> => {
+  const {data} = await axios.get<{ results: Lookup[] }>(episodeUrl);
+  return data.results;
 };
 
 export const saveCharacter = async (character: Character): Promise<boolean> => {
+  if (character.id) {
+    await axios.put<Character>(`${characterListUrl}/${character.id}`, character);
+  } else {
+    await axios.post<Character>(`${characterListUrl}`, character);
+  }
   return true;
 };

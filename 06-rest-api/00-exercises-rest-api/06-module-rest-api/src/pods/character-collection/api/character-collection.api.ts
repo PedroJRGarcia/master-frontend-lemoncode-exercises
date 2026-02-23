@@ -1,13 +1,19 @@
 import { CharacterEntityApi } from './character-collection.api-model';
-import { mockCharacterCollection } from './character-collection.mock-data';
+import axios from 'axios';
 
-let characterCollection = [...mockCharacterCollection];
+const url = '/api/character';
 
-export const getCharacterCollection = async (): Promise<CharacterEntityApi[]> => {
-  return characterCollection;
+export const getCharacterCollection = async (page: number = 1): Promise<CharacterEntityApi[]> => {
+  const { data } = await axios.get<{ results: CharacterEntityApi[] }>(`${url}?page=${page}`);
+  return data.results;
+};
+
+export const getCharacter = async (id: number): Promise<CharacterEntityApi> => {
+  const { data } = await axios.get<CharacterEntityApi>(`${url}/${id}`);
+  return data;
 };
 
 export const deleteCharacter = async (id: number): Promise<boolean> => {
-  characterCollection = characterCollection.filter((h) => h.id !== id);
+  await axios.delete(`${url}/${id}`);
   return true;
 };

@@ -13,12 +13,12 @@ import * as classes from './character.styles';
 
 interface Props {
   character: Character;
-  cities: Lookup[];
+  episodes: Lookup[];
   onSave: (character: Character) => void;
 }
 
 export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
-  const { character, cities, onSave } = props;
+  const { character, episodes, onSave } = props;
 
   return (
     <Formik
@@ -30,15 +30,9 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
       {() => (
         <Form className={classes.root}>
           <TextFieldComponent name="name" label="Name" />
-          <TextFieldComponent name="address" label="Address" />
-          <RatingComponent name="rating" max={5} />
-          <SelectComponent name="city" label="City" items={cities} />
-          <TextFieldComponent
-            name="description"
-            label="Description"
-            multiline={true}
-            rows={3}
-          />
+          <TextFieldComponent name="status" label="Status" />
+          <TextFieldComponent name="bestSentence" label="Best Sentence" />
+          <SelectComponent name="episodes" label="Episodes" items={episodes} />
           <Button type="submit" variant="contained" color="primary">
             Save
           </Button>
