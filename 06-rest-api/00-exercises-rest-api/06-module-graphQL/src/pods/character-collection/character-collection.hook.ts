@@ -5,12 +5,12 @@ import { mapFromApiToVm } from './character-collection.mapper';
 import { mapToCollection } from '#common/mappers';
 
 export const useCharacterCollection = () => {
-  const [characterCollection, setCharacterCollection] = React.useState<CharacterEntityVm[]>(
-    []
-  );
+  const [characterCollection, setCharacterCollection] = React.useState<
+    CharacterEntityVm[]
+  >([]);
 
-  const loadCharacterCollection = (page: number = 1) => {
-    getCharacterCollection(page).then((result) =>
+  const loadCharacterCollection = () => {
+    getCharacterCollection().then((result) =>
       setCharacterCollection(mapToCollection(result, mapFromApiToVm))
     );
   };

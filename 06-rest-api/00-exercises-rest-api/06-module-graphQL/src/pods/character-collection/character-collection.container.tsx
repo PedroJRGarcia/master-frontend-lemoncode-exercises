@@ -11,8 +11,8 @@ export const CharacterCollectionContainer = () => {
   const [page, setPage] = React.useState(1);
 
   React.useEffect(() => {
-    loadCharacterCollection(page);
-  }, [page]);
+    loadCharacterCollection();
+  }, []);
 
   const handleCreateCharacter = () => {
     navigate(linkRoutes.createCharacter);
@@ -24,7 +24,7 @@ export const CharacterCollectionContainer = () => {
 
   const handleDelete = async (id: number) => {
     await deleteCharacter(id);
-    loadCharacterCollection(page);
+    loadCharacterCollection();
   };
 
   return (
