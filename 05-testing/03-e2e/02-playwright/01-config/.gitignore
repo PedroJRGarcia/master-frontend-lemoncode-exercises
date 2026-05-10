@@ -1,0 +1,15 @@
+node_modules
+dist
+coverage
+.awcache
+test-report.*
+junit.xml
+*.log
+*.orig
+.awcache
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
